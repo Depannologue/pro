@@ -5,5 +5,5 @@ export class Contractor{
   email:  string;
   phone_number: string;
   exceptional_availabilities_available_now: boolean;
-  weekly_availabilitie: Object;
+  weekly_availability: Object;
 }

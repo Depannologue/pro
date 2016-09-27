@@ -90,7 +90,7 @@ export class WeeklyAvailabilityComponent{
   getContractorById(id: number) {
     this.contractorService.getContractorById(id)
         .subscribe(
-         contractor => this.weeklyAvailability = contractor.weekly_availabilitie,
+         contractor => this.weeklyAvailability = contractor.weekly_availability,
          error =>  this.errorMessage = <any>error);
   }
 
