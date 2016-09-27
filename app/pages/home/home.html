@@ -1,0 +1,40 @@
+<ion-content class="contact" *ngIf="auth.authenticated()">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <available></available>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <weekly-availability></weekly-availability>
+  </ion-grid>
+  <ion-grid>
+      <alert-intervention ></alert-intervention>
+  </ion-grid>
+  <ion-grid>
+      <ion-card class="ca">
+        <ion-list>
+            <ion-list-header>
+              Chiffre d'affaires
+            </ion-list-header>
+            <div padding>
+              <ion-segment [(ngModel)]="ca">
+                <ion-segment-button value="current">
+                  Mois en cours
+                </ion-segment-button>
+                <ion-segment-button value="all">
+                  Total
+                </ion-segment-button>
+              </ion-segment>
+            </div>
+            <div [ngSwitch]="ca">
+              <global-ca *ngSwitchCase="'all'"></global-ca>
+              <current-ca *ngSwitchCase="'current'"></current-ca>
+            </div>
+      </ion-list>
+    </ion-card>
+    <button block (click)="auth.logout()">Logout</button>
+    <button (click) = "single()">Single</button>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-content padding class="about" *ngIf="auth.authenticated()">
+  <ion-card class="interventions">
+    <ion-list>
+      <ion-list-header>
+        Liste des interventions
+      </ion-list-header>
+      <div padding>
+      <ion-segment [(ngModel)]="interv">
+        <ion-segment-button value="current">
+          En cours
+        </ion-segment-button>
+        <ion-segment-button value="history">
+          Historique
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  </ion-list>
+</ion-card>
+<div [ngSwitch]="interv">
+  <intervention-current *ngSwitchCase="'current'"></intervention-current>
+  <intervention-history *ngSwitchCase="'history'"></intervention-history>
+</div>
+
+</ion-content>

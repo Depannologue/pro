@@ -1,0 +1,10 @@
+<ion-content class="backColor" padding *ngIf="!auth.authenticated()">
+
+  <img class="test"src='img/logodepannologue.png'>
+  <button block (click)="auth.login()">Connection</button>
+
+</ion-content>
+<ion-tabs  *ngIf="auth.authenticated()">
+  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="Intervention" tabIcon="folder-open"></ion-tab>
+</ion-tabs>
